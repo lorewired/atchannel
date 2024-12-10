@@ -35,6 +35,7 @@ public class Message {
     )
     private String nickname;
 
+    @CreationTimestamp
     @Column(
         name = "created_at",
         updatable = false,
@@ -42,6 +43,6 @@ public class Message {
     )
     private LocalDateTime created_at;
 
-    
+
 
 }
