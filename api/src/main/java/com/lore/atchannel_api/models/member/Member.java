@@ -1,4 +1,4 @@
-package com.lore.atchannel_api.models;
+package com.lore.atchannel_api.models.member;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -19,30 +19,38 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode(of = "id")
 @AllArgsConstructor
-@Table(name="MESSAGE")
-public class Message {
+@EqualsAndHashCode(of = "id")
+@Table(name = "member")
+public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @jakarta.persistence.Column(
-        name = "nickname",
+    @Column(
+        name = "ip",
+        unique = true,
         updatable = false,
         nullable = false
     )
-    private String nickname;
+    private String ip;
+    
+    @Column(
+        name = "city",
+        nullable = false
+    )
+    private String city;
+
+    @Column(name = "coords")
+    private String coords;
 
     @CreationTimestamp
     @Column(
-        name = "created_at",
+        name = "enter_at",
         updatable = false,
         nullable = false
     )
-    private LocalDateTime created_at;
-
-
-
+    private LocalDateTime enter_at;
+    
 }
